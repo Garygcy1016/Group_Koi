@@ -1,0 +1,160 @@
+Call:
+glm(formula = monetary_gain ~ ., family = "binomial", data = data.imputed)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-3.2483   0.0000   0.0597   0.2565   2.4462  
+
+Coefficients:
+                                            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                               -2.508e+01  2.511e+04  -0.001 0.999203    
+sectoragriculture                         -4.675e-01  6.840e-01  -0.684 0.494260    
+sectorenergy                              -4.688e-01  7.481e-01  -0.627 0.530927    
+sectorfinance                             -5.323e-01  3.887e-01  -1.369 0.170940    
+sectorinfrastructure                       7.888e-02  6.837e-01   0.115 0.908157    
+sectormanufacturing                       -1.742e-01  7.801e-01  -0.223 0.823314    
+sectormining                               9.877e-01  6.285e-01   1.572 0.116043    
+sectorreal estate                          3.870e-01  1.127e+00   0.343 0.731268    
+sectorsocial service                       3.276e-02  3.029e-01   0.108 0.913878    
+sectortechnology                          -3.814e-01  5.102e-01  -0.748 0.454648    
+sectortransport                            1.390e-01  5.079e-01   0.274 0.784288    
+status_typeTiger                           3.916e-01  8.736e-01   0.448 0.653944    
+year_born1940-1949                         3.492e+00  1.774e+04   0.000 0.999843    
+year_born1950-1959                         2.113e+00  1.774e+04   0.000 0.999905    
+year_born1960-1969                         2.336e+00  1.774e+04   0.000 0.999895    
+year_born1970-1979                         2.756e+00  1.774e+04   0.000 0.999876    
+year_born1980-1989                         2.034e+00  1.774e+04   0.000 0.999909    
+genderMale                                 1.323e-02  4.121e-01   0.032 0.974385    
+native_provinceBeijing                     1.668e+00  9.945e-01   1.678 0.093418 .  
+native_provinceChongqing                  -3.972e-01  8.303e-01  -0.478 0.632349    
+native_provinceFujian                      6.937e-01  8.628e-01   0.804 0.421410    
+native_provinceGansu                       4.310e-01  8.674e-01   0.497 0.619273    
+native_provinceGuangdong                   1.825e+00  7.947e-01   2.296 0.021687 *  
+native_provinceGuangxi                     8.302e-01  1.155e+00   0.719 0.472435    
+native_provinceGuizhou                     1.423e+00  7.669e-01   1.856 0.063453 .  
+native_provinceHainan                      6.024e-01  8.992e-01   0.670 0.502891    
+native_provinceHebei                       1.443e+00  7.587e-01   1.902 0.057191 .  
+native_provinceHeilongjiang                6.250e-01  8.719e-01   0.717 0.473468    
+native_provinceHenan                       3.043e-01  7.600e-01   0.400 0.688866    
+native_provinceHubei                       1.815e+00  7.701e-01   2.357 0.018423 *  
+native_provinceHunan                       1.502e+00  7.542e-01   1.991 0.046431 *  
+native_provinceInner Mongolia              1.434e+00  8.789e-01   1.631 0.102834    
+native_provinceJiangsu                     1.078e+00  7.438e-01   1.449 0.147327    
+native_provinceJiangxi                     3.421e-01  8.298e-01   0.412 0.680104    
+native_provinceJilin                       7.778e-01  8.208e-01   0.948 0.343308    
+native_provinceLiaoning                   -4.240e-01  7.513e-01  -0.564 0.572556    
+native_provinceNingxia                     7.070e-01  8.191e-01   0.863 0.388075    
+native_provinceQinghai                     9.658e-01  1.043e+00   0.926 0.354538    
+native_provinceShaanxi                    -1.949e-01  7.382e-01  -0.264 0.791765    
+native_provinceShandong                   -6.249e-01  6.936e-01  -0.901 0.367647    
+native_provinceShanghai                    2.419e-01  9.046e-01   0.267 0.789105    
+native_provinceShanxi                      1.091e+00  7.636e-01   1.429 0.152925    
+native_provinceSichuan                     6.843e-01  7.131e-01   0.960 0.337244    
+native_provinceTianjin                     2.749e-01  8.803e-01   0.312 0.754842    
+native_provinceTibet                       1.857e+01  2.406e+03   0.008 0.993840    
+native_provinceXinjiang                    4.010e-01  8.459e-01   0.474 0.635481    
+native_provinceYunnan                      3.710e-01  8.120e-01   0.457 0.647734    
+native_provinceZhejiang                    1.560e+00  8.456e-01   1.845 0.064999 .  
+corruption_locationBeijing                -4.681e-01  7.422e-01  -0.631 0.528228    
+corruption_locationChongqing              -5.651e-01  9.477e-01  -0.596 0.550976    
+corruption_locationFujian                 -1.083e-01  8.786e-01  -0.123 0.901909    
+corruption_locationGansu                  -1.376e+00  1.018e+00  -1.351 0.176604    
+corruption_locationGuangdong               7.100e-01  7.883e-01   0.901 0.367735    
+corruption_locationGuangxi                -8.022e-01  1.163e+00  -0.690 0.490267    
+corruption_locationGuizhou                -2.253e-01  8.884e-01  -0.254 0.799828    
+corruption_locationHainan                  2.044e+00  1.336e+00   1.530 0.125988    
+corruption_locationHebei                   6.691e-01  9.505e-01   0.704 0.481451    
+corruption_locationHeilongjiang           -1.525e-01  8.815e-01  -0.173 0.862610    
+corruption_locationHenan                  -4.396e-01  9.268e-01  -0.474 0.635296    
+corruption_locationHong Kong               1.352e+01  5.077e+03   0.003 0.997876    
+corruption_locationHubei                   4.634e-01  7.961e-01   0.582 0.560482    
+corruption_locationHunan                  -7.316e-01  8.447e-01  -0.866 0.386399    
+corruption_locationInner Mongolia         -1.125e+00  8.659e-01  -1.300 0.193703    
+corruption_locationIran                    1.767e+01  1.773e+04   0.001 0.999205    
+corruption_locationJiangsu                 1.301e+00  8.888e-01   1.464 0.143241    
+corruption_locationJiangxi                 1.689e+00  1.059e+00   1.595 0.110761    
+corruption_locationJilin                  -4.420e-01  8.315e-01  -0.532 0.594998    
+corruption_locationLiaoning               -1.960e-01  8.108e-01  -0.242 0.809023    
+corruption_locationMacau                   1.868e+01  1.773e+04   0.001 0.999159    
+corruption_locationNingxia                -6.410e-01  9.146e-01  -0.701 0.483367    
+corruption_locationQinghai                -9.139e-01  1.326e+00  -0.689 0.490614    
+corruption_locationShaanxi                -1.591e-01  8.814e-01  -0.181 0.856734    
+corruption_locationShandong                6.809e-04  8.601e-01   0.001 0.999368    
+corruption_locationShanghai               -7.175e-01  9.686e-01  -0.741 0.458796    
+corruption_locationShanxi                  4.663e-01  9.994e-01   0.467 0.640812    
+corruption_locationSichuan                 2.620e-01  7.861e-01   0.333 0.738947    
+corruption_locationTianjin                -1.616e+00  8.976e-01  -1.800 0.071876 .  
+corruption_locationTibet                  -1.032e+00  1.241e+00  -0.832 0.405520    
+corruption_locationXinjiang               -1.834e+00  7.659e-01  -2.395 0.016622 *  
+corruption_locationYunnan                  8.208e-01  9.294e-01   0.883 0.377161    
+corruption_locationZhejiang                1.526e+00  1.218e+00   1.253 0.210299    
+local_officialYes                         -1.002e+00  2.969e-01  -3.375 0.000739 ***
+rankErin3                                 -1.272e+01  1.773e+04  -0.001 0.999428    
+rankErin4                                 -9.558e+00  1.773e+04  -0.001 0.999570    
+rankErin5                                 -1.101e+01  1.773e+04  -0.001 0.999505    
+rankErin6                                 -1.150e+01  1.773e+04  -0.001 0.999483    
+rankErin7                                 -1.224e+01  1.773e+04  -0.001 0.999449    
+rankErin8                                 -1.253e+01  1.773e+04  -0.001 0.999436    
+rankErin9                                 -1.395e+01  1.773e+04  -0.001 0.999372    
+rankErin10                                -1.381e+01  1.773e+04  -0.001 0.999378    
+sentence_details10-15 years imprisonment   4.030e+00  6.047e-01   6.664 2.67e-11 ***
+sentence_details15-20 years imprisonment   1.922e+00  4.266e-01   4.506 6.59e-06 ***
+sentence_details20 -25 years imprisonment  1.330e+00  3.745e-01   3.552 0.000383 ***
+sentence_details5-10 years imprisonment   -2.726e+00  3.282e-01  -8.306  < 2e-16 ***
+sentence_detailsDeath sentence             1.094e+00  5.536e-01   1.976 0.048188 *  
+sentence_detailsFine only                  1.767e+00  9.786e-01   1.806 0.070978 .  
+sentence_detailsLife imprisonment         -3.083e-01  3.466e-01  -0.890 0.373725    
+sentence_detailssentence_details           5.282e-02  4.397e-01   0.120 0.904391    
+corrupted_amount0-100,000                  3.562e+01  8.896e+02   0.040 0.968062    
+corrupted_amount1,000,000-1,500,000        3.809e+01  8.896e+02   0.043 0.965847    
+corrupted_amount1,500,000-2,000,000        5.411e+01  2.230e+03   0.024 0.980639    
+corrupted_amount10,000,000-15,000,000      5.457e+01  2.128e+03   0.026 0.979539    
+corrupted_amount100,000,000-200,000,000    3.740e+01  8.896e+02   0.042 0.966464    
+corrupted_amount100,000-200,000            3.695e+01  8.896e+02   0.042 0.966866    
+corrupted_amount1040000000                 3.662e+01  8.896e+02   0.041 0.967159    
+corrupted_amount15,000,000-20,000,000      5.357e+01  2.543e+03   0.021 0.983191    
+corrupted_amount1504832610                 3.579e+01  8.896e+02   0.040 0.967912    
+corrupted_amount2,000,000-2,500,000        3.542e+01  8.896e+02   0.040 0.968237    
+corrupted_amount2,500,000-3,000,000        3.757e+01  8.896e+02   0.042 0.966312    
+corrupted_amount20,000,000-25,000,000      3.703e+01  8.896e+02   0.042 0.966797    
+corrupted_amount200,000,000-250,000,000    3.503e+01  8.896e+02   0.039 0.968592    
+corrupted_amount200,000-300,000            3.725e+01  8.896e+02   0.042 0.966602    
+corrupted_amount25,000,000-30,000,000      3.628e+01  8.896e+02   0.041 0.967472    
+corrupted_amount250000000                  3.444e+01  8.896e+02   0.039 0.969117    
+corrupted_amount2500000000                 3.541e+01  8.896e+02   0.040 0.968249    
+corrupted_amount3,000,000-3,500,000        3.443e+01  8.896e+02   0.039 0.969130    
+corrupted_amount3,500,000-4,000,000        3.802e+01  8.896e+02   0.043 0.965908    
+corrupted_amount30,000,000-40,000,000      3.556e+01  8.896e+02   0.040 0.968113    
+corrupted_amount300,000-400,000            3.467e+01  8.896e+02   0.039 0.968911    
+corrupted_amount4,000,000-4,500,000        3.626e+01  8.896e+02   0.041 0.967483    
+corrupted_amount4,500,000-5,000,000        3.585e+01  8.896e+02   0.040 0.967853    
+corrupted_amount40,000,000-50,000,000      3.583e+01  8.896e+02   0.040 0.967869    
+corrupted_amount400,000-500,000            3.799e+01  8.896e+02   0.043 0.965936    
+corrupted_amount400000000                  3.577e+01  8.896e+02   0.040 0.967926    
+corrupted_amount5,000,000-6,000,000        3.644e+01  8.896e+02   0.041 0.967324    
+corrupted_amount50,000,000-60,000,000      3.529e+01  8.896e+02   0.040 0.968359    
+corrupted_amount500,000-600,000            3.609e+01  8.896e+02   0.041 0.967642    
+corrupted_amount6,000,000-7,000,000        3.677e+01  8.896e+02   0.041 0.967028    
+corrupted_amount60,000,000-70,000,000      3.507e+01  8.896e+02   0.039 0.968555    
+corrupted_amount600,000-700,000            3.590e+01  8.896e+02   0.040 0.967804    
+corrupted_amount7,000,000-8,000,000        3.461e+01  8.896e+02   0.039 0.968965    
+corrupted_amount70,000,000-80,000,000      3.511e+01  8.896e+02   0.039 0.968515    
+corrupted_amount700,000-800,000            3.535e+01  8.896e+02   0.040 0.968299    
+corrupted_amount8,000,000-9,000,000        3.558e+01  8.896e+02   0.040 0.968096    
+corrupted_amount80,000,000-100,000,000     3.579e+01  8.896e+02   0.040 0.967906    
+corrupted_amount800,000-1,000,000          3.511e+01  8.896e+02   0.039 0.968517    
+corrupted_amount802000000                  3.601e+01  8.896e+02   0.040 0.967713    
+corrupted_amount9,000,000-10,000,000       3.727e+01  8.896e+02   0.042 0.966579    
+connections_with_tigersYes                 2.348e+00  1.093e+00   2.148 0.031700 *  
+overseaYes                                 1.795e+01  6.112e+02   0.029 0.976575    
+head_vice1                                 7.162e-01  2.343e-01   3.057 0.002237 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2822.7  on 2446  degrees of freedom
+Residual deviance:  890.7  on 2306  degrees of freedom
+AIC: 1172.7
+
+Number of Fisher Scoring iterations: 19

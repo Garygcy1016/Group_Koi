@@ -1,0 +1,131 @@
+library(ggplot2)
+library(cowplot)
+library(randomForest)
+
+data <- read.csv('/Users/choyuching/Desktop/SOSC 4300 final project/from 22:12 based on this.csv')
+head(data)
+str(data)
+
+data$status_type<-as.factor(data$status_type)
+data$year_born <-as.factor(data$year_born)
+data$gender<-as.factor(data$gender)
+data$native_province<-as.factor(data$native_province)
+data$corruption_location<-as.factor(data$corruption_location)
+data$local_official<-as.factor(data$local_official)
+data$rankErin<-as.factor(data$rankErin)
+data$sentence_details<-as.factor(data$sentence_details)
+data$monetary_gain <-as.factor(data$monetary_gain)
+data$corrupted_amount<-as.factor(data$corrupted_amount)
+data$sector<-as.factor(data$sector)
+data$connections_with_tigers<-as.factor(data$connections_with_tigers)
+data$oversea<-as.factor(data$oversea)
+data$head_vice<-as.factor(data$head_vice)
+
+
+str(data)
+
+set.seed(200)
+data.imputed <- rfImpute(status_type ~ ., data = data, iter=10)
+
+xtabs(~ monetary_gain + gender, data=data)
+xtabs(~ monetary_gain + status_type, data=data)
+xtabs(~ monetary_gain + year_born, data=data)
+xtabs(~ monetary_gain + native_province, data=data)
+xtabs(~ monetary_gain + corruption_location, data=data)
+xtabs(~ monetary_gain + local_official, data=data)
+xtabs(~ monetary_gain + rankErin, data=data)
+xtabs(~ monetary_gain + sentence_details, data=data)
+xtabs(~ monetary_gain + sector, data=data)
+xtabs(~ monetary_gain + corrupted_amount, data=data)
+xtabs(~ monetary_gain + connections_with_tigers, data=data)
+xtabs(~ monetary_gain + head_vice, data=data)
+xtabs(~ monetary_gain + oversea, data=data)
+
+
+# let's start super simple and see if status_type (Tiger/Fly) is a good
+## predictor...
+## First, let's just look at the raw data...
+xtabs(~ monetary_gain + status_type, data=data.imputed)
+
+###########
+logistic <- glm(monetary_gain ~ rankErin, data=data.imputed, family="binomial")
+summary(logistic)
+
+
+## NOTE: Since we are doing logistic regression...
+## Null devaince = 2*(0 - LogLikelihood(null model))
+##               = -2*LogLikihood(null model)
+## Residual deviacne = 2*(0 - LogLikelihood(proposed model))
+##                   = -2*LogLikelihood(proposed model)
+ll.null <- logistic$null.deviance/-2
+ll.proposed <- logistic$deviance/-2
+
+## McFadden's Pseudo R^2 = [ LL(Null) - LL(Proposed) ] / LL(Null)
+Rsquare<- (ll.null - ll.proposed) / ll.null
+
+## chi-square value = 2*(LL(Proposed) - LL(Null))
+## p-value = 1 - pchisq(chi-square value, df = 2-1)
+1 - pchisq(2*(ll.proposed - ll.null), df=1)
+1 - pchisq((logistic$null.deviance - logistic$deviance), df=1)
+
+## Lastly, let's  see what this logistic regression predicts, given
+## that an official is either Tiger or Fly (and no other data about them).
+
+predicted.data <- data.frame(
+  probability.of.monetary_gain=logistic$fitted.values,
+  rankErin=data.imputed$rankErin)
+
+## We can plot the data...
+ggplot(data=predicted.data, aes(x=rankErin, y=probability.of.monetary_gain)) +
+  geom_point(aes(color=rankErin), size=5) +
+  xlab("rankErin") +
+  ylab("Predicted probability of having monetary_gain")
+
+ggsave("/Users/choyuching/Downloads/simple logistic regression graph use rankErin as predictor 0154.pdf")
+
+## Since there are only two probabilities (one for tigers and one for flies),
+## we can use a table to summarize the predicted probabilities.
+xtabs(~ probability.of.monetary_gain + status_type, data=predicted.data)
+
+
+
+## Since there are only two probabilities (one for tigers and one for flies),
+## we can use a table to summarize the predicted probabilities.
+xtabs(~ probability.of.monetary_gain + status_type, data=predicted.data)
+
+#####################################
+##
+## Now we will use all of the data available to predict monetary_gain
+##
+#####################################
+
+logistic <- glm(monetary_gain ~ ., data=data.imputed, family="binomial")
+summary(logistic)
+
+## Now calculate the overall "Pseudo R-squared" and its p-value
+ll.null <- logistic$null.deviance/-2
+ll.proposed <- logistic$deviance/-2
+
+## McFadden's Pseudo R^2 = [ LL(Null) - LL(Proposed) ] / LL(Null)
+(ll.null - ll.proposed) / ll.null
+
+## The p-value for the R^2
+1 - pchisq(2*(ll.proposed - ll.null), df=(length(logistic$coefficients)-1))
+
+## now we can plot the data
+predicted.data <- data.frame(
+  probability.of.monetary_gain=logistic$fitted.values,
+  monetary_gain=data.imputed$monetary_gain)
+
+predicted.data <- predicted.data[
+  order(predicted.data$probability.of.monetary_gain, decreasing=FALSE),]
+
+predicted.data$rank <- 1:nrow(predicted.data)
+
+## Lastly, we can plot the predicted probabilities for each sample having
+## heart disease and color by whether or not they actually had heart disease
+ggplot(data=predicted.data, aes(x=rank, y=probability.of.monetary_gain  )) +
+  geom_point(aes(color=monetary_gain), alpha=1, shape=4, stroke=0.5) +
+  xlab("Index of the observation") +
+  ylab("Probability of having monetary_gain")
+ggsave("/Users/choyuching/Downloads/22_12 2357result for logistical regression with random forest1_imputed by stauts 0233.pdf")
